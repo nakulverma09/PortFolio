@@ -1,0 +1,77 @@
+import React from "react";
+import { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion"; // ✅ Required for animation
+import { Link } from "react-router-dom";
+
+const Home = () => {
+  // useEffect(() => {
+  //   import('cursor-effects').then((module) => {
+  //     const Ripple = module?.Ripple;
+  //     if (Ripple) {
+  //       new Ripple({
+  //         color: '0,255,255',
+  //         radius: 15,
+  //         length: 0.6,
+  //       });
+  //     } else {
+  //       console.error('Ripple class not found in cursor-effects module.');
+  //     }
+  //   });
+  // }, []);
+  
+  return (
+    <section
+      id="home"
+      className="min-h-screen bg-gray-950 text-white flex items-center justify-center px-6 md:px-20"
+    >
+      <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-12 w-full max-w-6xl">
+        {/* Left Content */}
+        <div className="flex-1">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400 neon-text typing-animation">
+            <span>Hello, I'm NAKUL VERMA</span>
+          </h1>
+
+          <p className="text-gray-300 text-lg md:text-xl mb-6">
+            A passionate{" "}
+            <span className="text-cyan-400 font-semibold">
+              Full-Stack Developer
+            </span>{" "}
+            crafting futuristic web experiences with code and creativity.
+          </p>
+
+          <Link
+            to="/projects"
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-cyan-500 text-gray-950 font-semibold hover:bg-cyan-400 shadow-md hover:shadow-cyan-500/50 transition duration-300"
+          >
+            View Projects <ArrowRight className="ml-2" />
+          </Link>
+        </div>
+
+        {/* Right: Image or Illustration */}
+        <div className="flex-1 flex justify-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 5px #0ff, 0 0 15px #0ff",
+              rotate: [0, 1, -1, 0],
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cyan-400 shadow-xl flex items-center justify-center bg-gradient-to-br from-cyan-400/30 to-gray-800/60"
+          >
+            <img
+              src="/nakul.jpeg"
+              alt="Profile"
+              className="w-full h-full object-cover rounded-full border border-cyan-500"
+            />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Home;
