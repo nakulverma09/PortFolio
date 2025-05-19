@@ -45,7 +45,7 @@ const Navbar = () => {
 
             {/* LetsTalkButton inline with menu items */}
             <div className="ml-4">
-              <LetsTalkButton />
+              <LetsTalkButton handleNavClick={handleNavClick}/>
             </div>
           </div>
 
