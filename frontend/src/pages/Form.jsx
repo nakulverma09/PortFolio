@@ -39,7 +39,7 @@ const Form = () => {
   setStatus('Sending...');
 
   try {
-    const { data } = await axios.post('http://localhost:5000/api/users', formData);
+    const { data } = await axios.post('https://portfolio-ykj4.onrender.com/api/users', formData);
     setStatus('Message sent ✅');
     setFormData({ name: '', email: '', message: '' });
   } catch (err) {
