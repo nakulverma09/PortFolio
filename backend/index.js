@@ -11,7 +11,7 @@ const app = express();
 
 // ✅ Allow only frontend origin
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://nakulverse.netlify.app',
   credentials: true
 }));
 app.use(express.json());
