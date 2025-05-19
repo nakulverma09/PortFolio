@@ -15,7 +15,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+app.use(express.static('public')); // this auto-sets correct MIME types
 app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 3000;
