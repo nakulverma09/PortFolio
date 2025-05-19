@@ -87,9 +87,9 @@ const Navbar = () => {
             ))}
 
             <Link
-                key={"chat"}
-                to={`/${"chat".toLowerCase()}`}
-                onClick={() => handleNavClick("chat")}
+                key={"form"}
+                to={`/${"form".toLowerCase()}`}
+                onClick={() => handleNavClick("form")}
                 className={`block py-2 text-sm font-medium transition-colors duration-300 ${
                   active === "talk"
                     ? 'text-cyan-400'
