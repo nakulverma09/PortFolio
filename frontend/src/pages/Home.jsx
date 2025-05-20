@@ -1,55 +1,17 @@
 import React from "react";
-import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion"; // ✅ Required for animation
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // useEffect(() => {
-  //   import('cursor-effects').then((module) => {
-  //     const Ripple = module?.Ripple;
-  //     if (Ripple) {
-  //       new Ripple({
-  //         color: '0,255,255',
-  //         radius: 15,
-  //         length: 0.6,
-  //       });
-  //     } else {
-  //       console.error('Ripple class not found in cursor-effects module.');
-  //     }
-  //   });
-  // }, []);
-  
   return (
     <section
       id="home"
-      className="min-h-screen bg-gray-950 text-white flex items-center justify-center px-6 md:px-20"
+      className="h-screen bg-gray-950 text-white flex items-center justify-center px-9 md:px-20"
     >
-      <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-12 w-full max-w-6xl">
-        {/* Left Content */}
-        <div className="flex-1">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400 neon-text typing-animation">
-            <span>Hello, I'm NAKUL VERMA</span>
-          </h1>
-
-          <p className="text-gray-300 text-lg md:text-xl mb-6">
-            A passionate{" "}
-            <span className="text-cyan-400 font-semibold">
-              Full-Stack Developer
-            </span>{" "}
-            crafting futuristic web experiences with code and creativity.
-          </p>
-
-          <Link
-            to="/projects"
-            className="inline-flex items-center px-6 py-3 rounded-xl bg-cyan-500 text-gray-950 font-semibold hover:bg-cyan-400 shadow-md hover:shadow-cyan-500/50 transition duration-300"
-          >
-            View Projects <ArrowRight className="ml-2" />
-          </Link>
-        </div>
-
-        {/* Right: Image or Illustration */}
-        <div className="flex-1 flex justify-center">
+      <div className="flex flex-col items-center gap-8 pt-20 w-full max-w-screen-xl">
+        {/* Image Section Always on Top */}
+        <div className="flex justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -68,6 +30,28 @@ const Home = () => {
               className="w-full h-full object-cover rounded-full border border-cyan-500"
             />
           </motion.div>
+        </div>
+
+        {/* Text Section */}
+        <div className="text-center flex flex-col items-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400 neon-text typing-animation">
+            <span>Hello, I'm NAKUL VERMA</span>
+          </h1>
+
+          <p className="text-gray-300 text-lg md:text-xl mb-6 max-w-2xl mx-auto">
+            A passionate{" "}
+            <span className="text-cyan-400 font-semibold">
+              Full-Stack Developer
+            </span>{" "}
+            crafting futuristic web experiences with code and creativity.
+          </p>
+
+          <Link
+            to="/projects"
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-cyan-500 text-gray-950 font-semibold hover:bg-cyan-400 shadow-md hover:shadow-cyan-500/50 transition duration-300"
+          >
+            View Projects <ArrowRight className="ml-2" />
+          </Link>
         </div>
       </div>
     </section>

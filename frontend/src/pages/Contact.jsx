@@ -6,7 +6,7 @@ const contactDetails = [
   {
     icon: <Mail className="text-cyan-400 w-6 h-6" />,
     label: 'Email',
-    value: 'nakul11verma@gmail.com',
+    value: 'workwithnakul09@gmail.com, nakul11verma@gmail.com',
   },
   {
     icon: <Phone className="text-cyan-400 w-6 h-6" />,
@@ -18,12 +18,12 @@ const contactDetails = [
     label: 'Location',
     value: 'Haridwar, Uttarakhand, India',
   },
-//   {
-//     icon: <Linkedin className="text-cyan-400 w-6 h-6" />,
-//     label: 'LinkedIn',
-//     value: 'linkedin.com/in/nakulverma',
-//     link: 'https://linkedin.com/in/nakulverma',
-//   },
+  {
+    icon: <Linkedin className="text-cyan-400 w-6 h-6" />,
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/nakul-verma07',
+    link: 'https://linkedin.com/in/nakul-verma07',
+  },
   {
     icon: <Github className="text-cyan-400 w-6 h-6" />,
     label: 'GitHub',

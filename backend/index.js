@@ -11,9 +11,12 @@ const app = express();
 
 // ✅ Allow only frontend origin
 app.use(cors({
-  origin: 'https://nakulverse.netlify.app',
+  origin: process.env.NODE_ENV === 'production'
+    ? 'https://nakulverse.netlify.app'
+    : 'http://localhost:5173',
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.static('public')); // this auto-sets correct MIME types
 app.use('/api/users', userRoutes);

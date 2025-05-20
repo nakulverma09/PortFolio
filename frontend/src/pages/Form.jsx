@@ -69,7 +69,7 @@ const Form = () => {
 };
 
   return (
-    <section id="Form" className="bg-gray-950 text-white py-16 px-6 md:px-20">
+    <section id="Form" className="bg-gray-950 h-screen text-white py-16 px-6 md:px-20">
       <br />
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
@@ -80,7 +80,7 @@ const Form = () => {
           transition={{ duration: 0.6 }}
         >
           <MessageCircleHeart className="inline-block mb-2 mr-2 text-cyan-400" />
-          Connect with RoboDev
+          Connect with nakulverse
         </motion.h2>
 
         {/* Form */}

@@ -26,8 +26,8 @@ const Navbar = () => {
             <span className="neon-text lowercase">.dev</span>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Menu (now hidden until lg) */}
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item}
@@ -45,12 +45,12 @@ const Navbar = () => {
 
             {/* LetsTalkButton inline with menu items */}
             <div className="ml-4">
-              <LetsTalkButton handleNavClick={handleNavClick}/>
+              <LetsTalkButton handleNavClick={handleNavClick} />
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
+          {/* Mobile Menu Toggle (visible below lg) */}
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
@@ -69,7 +69,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-gray-900 border-t border-cyan-500 px-4 pb-4 rounded-b-xl overflow-hidden"
+            className="lg:hidden bg-gray-900 border-t border-cyan-500 px-4 pb-4 rounded-b-xl overflow-hidden"
           >
             {navItems.map((item) => (
               <Link
@@ -87,17 +87,16 @@ const Navbar = () => {
             ))}
 
             <Link
-                key={"form"}
-                to={`/${"form".toLowerCase()}`}
-                onClick={() => handleNavClick("form")}
-                className={`block py-2 text-sm font-medium transition-colors duration-300 ${
-                  active === "talk"
-                    ? 'text-cyan-400'
-                    : 'text-white hover:text-cyan-300'
-                }`}
-              >
-                Lets's Talk
-              </Link>
+              to="/form"
+              onClick={() => handleNavClick("form")}
+              className={`block py-2 text-sm font-medium transition-colors duration-300 ${
+                active === "talk"
+                  ? 'text-cyan-400'
+                  : 'text-white hover:text-cyan-300'
+              }`}
+            >
+              Let's Talk
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

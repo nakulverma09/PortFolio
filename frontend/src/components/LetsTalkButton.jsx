@@ -10,7 +10,7 @@ const LetsTalkButton = ({ handleNavClick }) => {
       className="inline-block"
     >
       <Link
-        to="/chat" // change to your contact route or external URL
+        to="/form" // change to your contact route or external URL
         onClick={() => {handleNavClick('form')}}
         className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-cyan-500/50 transition duration-300"
       >
