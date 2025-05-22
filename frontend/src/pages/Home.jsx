@@ -2,14 +2,15 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Download } from 'lucide-react';
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="h-screen bg-gray-950 text-white flex items-center justify-center px-9 md:px-20"
+      className="h-screen bg-gray-950 text-white flex items-center justify-center px-8 md:px-20"
     >
-      <div className="flex flex-col items-center gap-8 pt-20 w-full max-w-screen-xl">
+      <div className="flex flex-col items-center gap-8 pt-15 w-full max-w-screen-xl">
         {/* Image Section Always on Top */}
         <div className="flex justify-center">
           <motion.div
@@ -46,12 +47,23 @@ const Home = () => {
             crafting futuristic web experiences with code and creativity.
           </p>
 
+          <div className="flex w-auto h-auto flex-row justify-center align-bottom gap-5">
           <Link
             to="/projects"
             className="inline-flex items-center px-6 py-3 rounded-xl bg-cyan-500 text-gray-950 font-semibold hover:bg-cyan-400 shadow-md hover:shadow-cyan-500/50 transition duration-300"
           >
             View Projects <ArrowRight className="ml-2" />
           </Link>
+
+          <a href="/nakulCV.pdf" download="nakulCV.pdf">
+          <button
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-black-500 border-3 border-sky-300 text-white-950 font-semibold hover:bg-cyan-400 hover:text-black shadow-md hover:shadow-cyan-500/50 transition duration-300"
+          >
+            <Download size={16} className="mr-3"/>
+            My Resume
+          </button>
+          </a>
+          </div>
         </div>
       </div>
     </section>
