@@ -21,11 +21,13 @@ router.post('/', async (req, res) => {
     },
   });
   const mailOptions = {
-    from: email,
-    to: process.env.GMAIL_USER,
-    subject: `New Contact Form Message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-  };
+  from: email,          // your Gmail address
+  to: 'workwithnakul09@gmail.com',             // where you want to receive
+  subject: 'New message from your portfolio', // subject line
+  replyTo: email,                  // visitor’s email here
+  text: `You got a message from ${email}:\n\n${message}`,
+};
+
   try {
     await transporter.sendMail(mailOptions);
     // Create new user document
