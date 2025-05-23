@@ -26,9 +26,6 @@ app.use(cors({
 }));
 
 
-// Handle OPTIONS preflight requests
-app.options('*', cors());
-
 app.use((req, res, next) => {
   console.log("Origin:", req.headers.origin);
   next();
