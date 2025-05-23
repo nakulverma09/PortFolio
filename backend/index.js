@@ -9,13 +9,25 @@ connectDB();
 
 const app = express();
 
-// ✅ Allow only frontend origin
+const allowedOrigins = [
+  'https://nakulverse.netlify.app', // production
+  'http://localhost:5173'           // development
+];
+
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? 'https://nakulverse.netlify.app'
-    : 'http://localhost:5173',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
+
+
+// Handle OPTIONS preflight requests
+app.options('*', cors());
 
 app.use((req, res, next) => {
   console.log("Origin:", req.headers.origin);
