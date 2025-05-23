@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 
 // Basic sanitization function
 const sanitize = (str) => str.replace(/[<>{}]/g, '');
@@ -11,7 +12,7 @@ router.post('/', async (req, res) => {
     const name = sanitize(req.body.name);
     const email = sanitize(req.body.email);
     const message = sanitize(req.body.message);
-    
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
