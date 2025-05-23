@@ -7,12 +7,26 @@ const sanitize = (str) => str.replace(/[<>{}]/g, '');
 
 // POST: Create user message
 router.post('/', async (req, res) => {
-  try {
     // Sanitize input (assuming sanitize is a function to clean input)
     const name = sanitize(req.body.name);
     const email = sanitize(req.body.email);
     const message = sanitize(req.body.message);
-
+    
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER, // your Gmail
+      pass: process.env.GMAIL_PASS, // your App Password
+    },
+  });
+  const mailOptions = {
+    from: email,
+    to: process.env.GMAIL_USER,
+    subject: `New Contact Form Message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  };
+  try {
+    await transporter.sendMail(mailOptions);
     // Create new user document
     const user = new User({ name, email, message });
     await user.save();
